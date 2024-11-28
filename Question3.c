@@ -1,3 +1,12 @@
+/*
+Given an integer array nums and an integer k, return the kth largest element in the array.
+Note that it is the kth largest element in the sorted order, not the kth distinct element.
+Solve it without sorting.
+Example:
+Input: nums = [3,2,1,5,6,4], k = 2
+Output: 5
+*/
+
 #include <stdio.h>
 int main() {
     int nums[] = {3, 2, 1, 5, 6, 4};
