@@ -13,3 +13,33 @@ Input : arr[] = {2, 3}, k = 3
 Output : Invalid
 There is no subarray of size 3 as size of whole array is 2.
 */
+
+#include <stdio.h>
+int main() {
+    int arr[] = {1, 4, 2, 10, 23, 3, 1, 0, 20};
+    int n = sizeof(arr) / sizeof(arr[0]);
+    int k = 4;
+    int max_sum = 0;
+    int window_sum = 0;
+
+    if (k > n) {
+        printf("Invalid\n");
+        return 0;
+    }
+    for (int i = 0; i < k; i++) {
+        window_sum += arr[i];
+    }
+
+    max_sum = window_sum;
+
+    for (int i = k; i < n; i++) {
+        window_sum = window_sum - arr[i - k] + arr[i];
+        if (window_sum > max_sum) {
+            max_sum = window_sum;
+        }
+    }
+
+    printf("Maximum sum of %d consecutive elements: %d\n", k, max_sum);
+
+    return 0;
+}
