@@ -9,3 +9,27 @@ Input: A = [1, 2, 4, 5, 7, 11]
 Expected Output: Yes
 (Explanation: The pair (2, 7) sums to 9.)
 */
+
+#include <stdio.h>
+int main() {
+    int A[] = {1, 2, 4, 5, 7, 11}; 
+    int N = 6;                     
+    int X = 9;                    
+    int found = 0;           
+
+    for (int i = 0; i < N; i++) {
+        for (int j = i + 1; j < N; j++) {
+            if (A[i] + A[j] == X) {
+                printf("Yes, pair (%d, %d) sums to %d.\n", A[i], A[j], X);
+                found = 1;
+                break; 
+            }
+        }
+        if (found) break; 
+    }
+    if (!found) {
+        printf("No pair found that sums to %d.\n", X);
+    }
+
+    return 0;
+}
